@@ -3,5 +3,10 @@
     "paisagem": "https://www.democrart.com.br/cdn/shop/files/quadros-democrart-gustavo-jacob-paisagem-baixa-luz-milford-sound-NZ-galeria-de-arte-obras-de-arte.jpg?v=1750289673",
     "r10": "https://i.ytimg.com/vi/adpskHCwDaU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBr-4jeyE44q6K8jT4dxnSX2zzSPA",
     "cs": "https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/social/cs2.jpg"
+  },
+  "titulos": {
+    "paisagem": "Paisagem",
+    "r10": "R10",
+    "cs": "CS:GO"
   }
 }
