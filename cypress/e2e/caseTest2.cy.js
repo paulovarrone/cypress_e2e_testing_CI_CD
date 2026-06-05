@@ -1,24 +1,30 @@
 describe('template spec', () => {
   it('Entrar no site', () => {
-    cy.entrarNoSite();
+    cy.entrarNoSite2();
     
   })
 
   it('Colocar inputs validos', () => {
-    cy.validInputs();
+    cy.validInputs2();
     
   })
 
   it('Verificar mensagens sem erro', () => {
-    cy.semErros();
+    cy.semErros2();
   })
 
   it('Enviar imagens', () => {
-    cy.enviarImagens();
+    cy.enviarImagens2();
+  })
+
+  it('Limpar inputs', () => {
+    cy.clearInputs2();
   })
 
   it('Verificar imagem adicionada', () => {
-    cy.verificarIamgemAdicionada();
+    cy.verificarIamgemAdicionada2();
   })
+
+  
 
 })
