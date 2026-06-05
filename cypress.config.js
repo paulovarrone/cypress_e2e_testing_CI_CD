@@ -5,7 +5,7 @@ module.exports = defineConfig({
   viewportHeight: 1080,
 
   e2e: {
-    baseUrl: 'https://localhost:3000/',
+    baseUrl: 'http://localhost:3000/',
     redirectionLimit: 100,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 60000,
