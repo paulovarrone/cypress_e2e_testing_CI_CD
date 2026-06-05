@@ -5,6 +5,7 @@ export default class Controller {
         this.#view = view
         this.#service = service
         this.#view.configureOnSubmit(this.#onSubmit.bind(this))
+        this.#view.configureOnDelete(this.#onDelete.bind(this))
     }
 
     async initialize() {
@@ -21,6 +22,10 @@ export default class Controller {
     async #onSubmit(item) {
         await this.#service.saveItem(item)
         return this.#view.updateList([item])
+    }
+
+    async #onDelete(item) {
+        return this.#service.deleteItem(item)
     }
 
     async loadItems() {
