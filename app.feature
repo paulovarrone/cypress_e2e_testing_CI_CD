@@ -11,7 +11,7 @@ Feature: Image Registration
 
   Scenario: Submitting an image with valid inputs using enter key
     Given I am on the image registration page
-    When I enter "TITLE" in the title field
+    When I enter "INSERT TITLE" in the title field
     Then I should see a check icon in the title field
     When I enter "CHOSE AN IMAGE AT FIXTURE EXAMPLE" in the URL field
     Then I should see a check icon in the imageUrl field
@@ -22,7 +22,7 @@ Feature: Image Registration
 
   Scenario: Submitting an image and updating the list
     Given I am on the image registration page
-    Then I have entered "TITLE" in the title field
+    Then I have entered "INSERT TITLE" in the title field
     Then I have entered "CHOSE AN IMAGE AT FIXTURE EXAMPLE" in the URL field
     When I click the submit button
     And the list of registered images should be updated with the new item
@@ -37,7 +37,7 @@ Feature: Image Registration
 
   Scenario: Removing an image from the list
     Given I am on the image registration page
-    Then I have entered "TITLE" in the title field
+    Then I have entered "INSERT TITLE" in the title field
     Then I have entered "CHOSE AN IMAGE AT FIXTURE EXAMPLE" in the URL field
     When I click the submit button
     And the list of registered images should be updated with the new item
