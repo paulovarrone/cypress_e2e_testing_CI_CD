@@ -1,16 +1,16 @@
 describe('template spec', () => {
   it('Entrar no site', () => {
-    cy.entrarNoSite();
+    cy.entrarNoSite1();
     
   })
 
   it('Colocar inputs invalidos', () => {
-    cy.invalidInputs();
+    cy.invalidInputs1();
     
   })
 
   it('Verificar mensagens de erro', () => {
-    cy.errorMessages();
+    cy.errorMessages1();
   })
 
 })
