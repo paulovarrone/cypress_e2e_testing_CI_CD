@@ -15,3 +15,4 @@
 
 // Import commands.js using ES2015 syntax:
 import './invalid_inputs'
+import './valid_inputs'
