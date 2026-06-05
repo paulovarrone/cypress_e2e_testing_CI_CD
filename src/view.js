@@ -5,13 +5,22 @@ export default class View {
     #cardList = document.querySelector('#card-list')
 
     #submitFn = () => { }
-
+    #deleteFn = () => { }
     constructor() { }
 
     initialize() {
-        for (const form of this.#forms) {
-            form.addEventListener('submit', this.#onSubmit(form), false)
-        }
+    for (const form of this.#forms) {
+        form.addEventListener('submit', this.#onSubmit(form), false)
+    }
+
+    this.#cardList.addEventListener('click', (event) => {
+            const button = event.target.closest('[data-image-url]')
+            if (!button) return
+
+            const { title, imageUrl } = button.dataset
+            this.#deleteFn({ title, imageUrl })
+            button.closest('article').remove()
+        })
     }
 
     /**
@@ -50,6 +59,9 @@ export default class View {
     configureOnSubmit(onSubmit) {
         this.#submitFn = onSubmit
     }
+    configureOnDelete(onDelete) {
+        this.#deleteFn = onDelete
+    }
 
     /**
     * @param {object[]} items
@@ -68,6 +80,13 @@ export default class View {
                             <h4 class="card-title">${title}</h4>
                         </figcaption>
                     </figure>
+                    <button
+                        class="btn btn-danger m-2"
+                        data-title="${title}"
+                        data-image-url="${imageUrl}"
+                        aria-label="Delete image ${title}">
+                        🗑️ Delete
+                    </button>
                 </div>
             </article>
         `
