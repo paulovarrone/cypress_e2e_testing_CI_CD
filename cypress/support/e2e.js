@@ -16,3 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './invalid_inputs'
 import './valid_inputs'
+import './update_list'
+import './submit_refresh'
+import './remove_img'
+import './remove_refresh'
