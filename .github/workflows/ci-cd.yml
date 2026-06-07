@@ -1,5 +1,4 @@
 name: CI/CD
-
 on:
   push:
     branches: [main]
@@ -16,19 +15,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 1) Roda os testes Cypress
+  # 1) Roda os testes Cypress em paralelo, gravando no Cypress Cloud
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2] # 2 instâncias em paralelo
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
       - name: Cypress run
         uses: cypress-io/github-action@v7
         with:
           start: npm start
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 60
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # 2) Só faz deploy se os testes passarem
   deploy:
@@ -40,15 +47,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: '.'
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
