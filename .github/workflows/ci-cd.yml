@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2] # 2 instâncias em paralelo
+        containers: [1, 2, 3, 4, 5 ,6] # 2 instâncias em paralelo
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -34,7 +34,7 @@ jobs:
           record: true
           parallel: true
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_RECORD_KEY: 73b29789-8756-4c76-8aa1-aec776b51311
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # 2) Só faz deploy se os testes passarem
